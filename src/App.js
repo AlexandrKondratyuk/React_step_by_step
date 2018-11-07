@@ -32,8 +32,6 @@ class App extends Component {
             textAlign: 'center'
         };
 
-        const cars = this.state.cars;
-
         return (
             <div className="App">
                 <header className="App-header">
@@ -52,27 +50,39 @@ class App extends Component {
                 </header>
                 <body>
                 <div style={divStyle}>
-                    <h1>{this.state.pageTitle }</h1>
+                    <h1>{this.state.pageTitle}</h1>
                     <input type="text" onChange={this.handleInput}/>
 
                     <button onClick={this.changeTitleHandle.bind(this, 'Changed')}>
                         Change title
                     </button>
-                    <Car
-                        name={cars[0].name}
-                        year={cars[0].year}
-                        onChangeTitle = {this.changeTitleHandle.bind(this, cars[0].name)}
-                    />
-                    <Car
-                        name={cars[1].name}
-                        year={cars[1].year}
-                        onChangeTitle = { () => this.changeTitleHandle(cars[1].name)}
-                    />
-                    <Car
-                        name={cars[2].name}
-                        year={cars[2].year}
-                        onChangeTitle = { () => this.changeTitleHandle(cars[2].name)}
-                    />
+
+                    {this.state.cars.map((car, index) => {
+                        return (
+                            <Car
+                                key={index}
+                                name={car.name}
+                                year={car.year}
+                                onChangeTitle={() => this.changeTitleHandle(car.name)}
+                            />
+                        );
+                    })}
+
+                    {/*<Car*/}
+                    {/*name={cars[0].name}*/}
+                    {/*year={cars[0].year}*/}
+                    {/*onChangeTitle = {this.changeTitleHandle.bind(this, cars[0].name)}*/}
+                    {/*/>*/}
+                    {/*<Car*/}
+                    {/*name={cars[1].name}*/}
+                    {/*year={cars[1].year}*/}
+                    {/*onChangeTitle = { () => this.changeTitleHandle(cars[1].name)}*/}
+                    {/*/>*/}
+                    {/*<Car*/}
+                    {/*name={cars[2].name}*/}
+                    {/*year={cars[2].year}*/}
+                    {/*onChangeTitle = { () => this.changeTitleHandle(cars[2].name)}*/}
+                    {/*/>*/}
                 </div>
                 </body>
             </div>
