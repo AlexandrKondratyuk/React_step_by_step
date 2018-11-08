@@ -1,17 +1,30 @@
 import React from 'react';
+import './Car.css'
 
-export default props => (
-    <div style={{
-        border: '1px solid #ccc',
-        marginBottom: '10px',
-        display: 'block',
-        padding: '10px',
-        boxShadow: '0 4px 5px rgb(0,0,0,.14)',
-        borderRadius: '5px'
-    }}>
-        <h3>Car name : {props.name}</h3>
-        <p>Year : <strong>{props.year}</strong></p>
-        <input type="text" onChange={props.onChangeName} value={props.name}/>
-        <button onClick={props.onDelete}>Delete</button>
-    </div>
-);
+export default props => {
+    const inputClasses = ['input'];
+
+    if (props.name.length > 4) {
+        inputClasses.push('bold')
+    }
+
+    if (props.name !== '') {
+        inputClasses.push('green')
+    } else {
+        inputClasses.push('red');
+    }
+
+    return (
+        <div className='Car'>
+            <h3>Car name : {props.name}</h3>
+            <p>Year : <strong>{props.year}</strong></p>
+            <input
+                type="text"
+                onChange={props.onChangeName}
+                value={props.name}
+                className={inputClasses.join(' ')}
+            />
+            <button onClick={props.onDelete}>Delete</button>
+        </div>
+    )
+};
