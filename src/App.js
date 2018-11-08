@@ -29,7 +29,7 @@ class App extends Component {
         console.log(name, index);
     };
 
-    deleteHandler (index) {
+    deleteHandler(index) {
         const cars = this.state.cars.concat();
         cars.splice(index, 1);
         this.setState({cars});
@@ -51,7 +51,7 @@ class App extends Component {
                         name={car.name}
                         year={car.year}
                         onChangeName={(event) => this.onChangeName(event.target.value, index)}
-                        onDelete =  {this.deleteHandler.bind(this, index) }
+                        onDelete={this.deleteHandler.bind(this, index)}
                     />
                 );
             })
@@ -79,7 +79,13 @@ class App extends Component {
                     <button onClick={this.toggleCarsHandler}>
                         Toggle cars
                     </button>
-                    {cars}
+                    <div style={{
+                        width: 400,
+                        margin: 'auto',
+                        paddingTop: '20'
+                    }}>
+                        {cars}
+                    </div>
                 </div>
             </div>
         );
