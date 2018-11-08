@@ -1,1 +1,7 @@
-git rm --cached -r .idea
+change Origin in git => 
+*git rm --cached -r .idea*
+
+$ yarn add radium
+https://github.com/FormidableLabs/radium
+
+
