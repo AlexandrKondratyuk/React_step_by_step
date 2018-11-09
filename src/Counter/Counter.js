@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Auxillary from '../hoc/Auxillary';
 
 export default class Counter extends Component {
     state = {
@@ -12,17 +13,33 @@ export default class Counter extends Component {
     };
 
     render() {
+        return (
+            <>
+                <h2>Counter {this.state.counter}</h2>
+                <button onClick={() => this.setState({counter: this.state.counter - 1})}> -</button>
+                <button onClick={this.addCounter}> +</button>
+            </>
+        );
+
         // return (
-        //     <div>
+        //     <Auxillary>
         //         <h2>Counter {this.state.counter}</h2>
-        //         <button onClick={() => this.setState({counter: this.state.counter - 1})}> - </button>
-        //         <button onClick={this.addCounter}> + </button>
-        //     </div>
+        //         <button onClick={() => this.setState({counter: this.state.counter - 1})}> -</button>
+        //         <button onClick={this.addCounter}> +</button>
+        //     </Auxillary>
         // );
-        return [
-            <h2 key={1}>Counter {this.state.counter}</h2>,
-            <button key={2} onClick={() => this.setState({counter: this.state.counter - 1})}> - </button>,
-            <button key={3} onClick={this.addCounter}> + </button>
-        ];
+
+        // return (
+        //         <React.Fragment>
+        //         <h2>Counter {this.state.counter}</h2>
+        //         <button onClick={() => this.setState({counter: this.state.counter - 1})}> -</button>
+        //         <button onClick={this.addCounter}> +</button>
+        //         </React.Fragment>;
+
+        // return [
+        //     <h2 key={1}>Counter {this.state.counter}</h2>,
+        //     <button key={2} onClick={() => this.setState({counter: this.state.counter - 1})}> - </button>,
+        //     <button key={3} onClick={this.addCounter}> + </button>
+        // ];
     }
 }
