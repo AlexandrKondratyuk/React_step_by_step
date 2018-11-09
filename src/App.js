@@ -6,12 +6,13 @@ import Car from './components/Car/Car';
 class App extends Component {
 
     constructor (props) {
+        console.log('App constructor')
         super(props);
         this.state = {
             cars: [
                 {name: 'Ford', year: 2018},
-                {name: 'Mazda', year: 2016},
-                {name: 'Skoda', year: 2013}
+                // {name: 'Mazda', year: 2016},
+                // {name: 'Skoda', year: 2013}
             ],
             pageTitle: 'React components',
             showCars: false
@@ -39,8 +40,16 @@ class App extends Component {
         this.setState({cars});
     };
 
+    componentWillMount() {
+        console.log('App componentWillMount')
+    }
+    componentDidMount() {
+        console.log('App componentDidMount')
+    }
+
+
     render() {
-        console.log('>>>>render<<<<<');
+        console.log('>>>>App render<<<<<');
         const divStyle = {
             textAlign: 'center'
         };
