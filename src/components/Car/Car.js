@@ -16,8 +16,21 @@ class Car extends React.Component {
         console.log('Car componentWillUpdate', nextProps, nextState)
     }
 
+    // new method from v.16.3
+    static getDerivedStateFromProps (nextProps, prevState) {
+        console.log('Car getDerivedStateFromProps', nextProps, prevState);
+
+        return prevState;
+    }
+
     componentDidUpdate() {
         console.log('Car componentDidUpdate')
+    }
+
+    // new method from v.16.3
+    getSnapshotBeforeUpdate () {
+        console.log('Car getSnapshotBeforeUpdate')
+
     }
 
     componentWillUnmount () {
