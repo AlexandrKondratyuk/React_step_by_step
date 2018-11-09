@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.scss';
 import Car from './components/Car/Car';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
+import Counter from './Counter/Counter'
 
 class App extends Component {
 
@@ -12,8 +13,8 @@ class App extends Component {
         this.state = {
             cars: [
                 {name: 'Ford', year: 2018},
-                {name: 'Mazda', year: 2016},
-                {name: 'Skoda', year: 2013}
+                // {name: 'Mazda', year: 2016},
+                // {name: 'Skoda', year: 2013}
             ],
             pageTitle: 'React components',
             showCars: false
@@ -91,8 +92,10 @@ class App extends Component {
                 </header>
                 <div style={divStyle}>
                     <h1>{this.props.title}</h1>
-
+                    <Counter />
+                    <hr/>
                     <button
+                        style={{marginTop: '20px'}}
                         className='AppButton'
                         onClick={this.toggleCarsHandler}
                     >
