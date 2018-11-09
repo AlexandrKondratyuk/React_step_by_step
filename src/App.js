@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import Car from './components/Car/Car';
 
 class App extends Component {
@@ -74,9 +74,13 @@ class App extends Component {
                     </a>
                 </header>
                 <div style={divStyle}>
-                    <h1>{this.state.pageTitle}</h1>
+                    {/*<h1>{this.state.pageTitle}</h1>*/}
+                    <h1>{this.props.title}</h1>
 
-                    <button onClick={this.toggleCarsHandler}>
+                    <button
+                        className='AppButton'
+                        onClick={this.toggleCarsHandler}
+                    >
                         Toggle cars
                     </button>
                     <div style={{
