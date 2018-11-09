@@ -2,17 +2,18 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import Car from './components/Car/Car';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 
 class App extends Component {
 
-    constructor (props) {
+    constructor(props) {
         console.log('App constructor')
         super(props);
         this.state = {
             cars: [
                 {name: 'Ford', year: 2018},
-                // {name: 'Mazda', year: 2016},
-                // {name: 'Skoda', year: 2013}
+                {name: 'Mazda', year: 2016},
+                {name: 'Skoda', year: 2013}
             ],
             pageTitle: 'React components',
             showCars: false
@@ -43,6 +44,7 @@ class App extends Component {
     componentWillMount() {
         console.log('App componentWillMount')
     }
+
     componentDidMount() {
         console.log('App componentDidMount')
     }
@@ -59,13 +61,14 @@ class App extends Component {
         if (this.state.showCars) {
             cars = this.state.cars.map((car, index) => {
                 return (
-                    <Car
-                        key={index}
-                        name={car.name}
-                        year={car.year}
-                        onChangeName={(event) => this.onChangeName(event.target.value, index)}
-                        onDelete={this.deleteHandler.bind(this, index)}
-                    />
+                    <ErrorBoundary key={index}>
+                        <Car
+                            name={car.name}
+                            year={car.year}
+                            onChangeName={(event) => this.onChangeName(event.target.value, index)}
+                            onDelete={this.deleteHandler.bind(this, index)}
+                        />
+                    </ErrorBoundary>
                 );
             })
         }
@@ -87,7 +90,6 @@ class App extends Component {
                     </a>
                 </header>
                 <div style={divStyle}>
-                    {/*<h1>{this.state.pageTitle}</h1>*/}
                     <h1>{this.props.title}</h1>
 
                     <button
