@@ -6,4 +6,7 @@ https://github.com/FormidableLabs/radium
 
 $ yarn add node-sass sass-loader
 
+$ yarn add prop-types
+
+
 
